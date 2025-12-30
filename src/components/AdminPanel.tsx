@@ -305,11 +305,6 @@ export function AdminPanel() {
     }
   }
 
-  const getUsernameById = (userId: string) => {
-    const user = users.find((u) => u.id === userId)
-    return user?.username || userId
-  }
-
   if (!profile?.is_admin) {
     return <div style={styles.error}>Access denied. Admin only.</div>
   }
