@@ -68,6 +68,8 @@ export function Leaderboard() {
               backgroundColor: getBackgroundColor(index),
               filter: index < 3 ? 'blur(12px)' : 'none',
               transition: 'filter 0.3s ease',
+              userSelect: index < 3 && !profile?.is_admin ? 'none' : 'auto',
+              pointerEvents: index < 3 && !profile?.is_admin ? 'none' : 'auto',
             }}
             onMouseEnter={
               profile?.is_admin

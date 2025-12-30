@@ -60,12 +60,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         .from('users')
         .select('*')
         .eq('id', userId)
-        .single()
+        .maybeSingle()
 
       if (error) throw error
-      setProfile(data)
+
+      if (!data) {
+        // Profile doesn't exist - user might need to sign up or profile was deleted
+        console.warn('User profile not found for user:', userId)
+        setProfile(null)
+        // Sign out the user since they don't have a profile
+        await supabase.auth.signOut()
+        setUser(null)
+      } else {
+        setProfile(data)
+      }
     } catch (error) {
       console.error('Error loading profile:', error)
+      setProfile(null)
     } finally {
       setLoading(false)
     }
