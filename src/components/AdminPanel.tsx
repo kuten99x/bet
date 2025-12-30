@@ -378,7 +378,7 @@ export function AdminPanel() {
                 required
                 style={styles.select}
               >
-                <option value="">Select Player 1</option>
+                <option value="">Player 1</option>
                 {users.map((user) => (
                   <option key={user.id} value={user.username}>
                     {user.username}
@@ -391,7 +391,7 @@ export function AdminPanel() {
                 required
                 style={styles.select}
               >
-                <option value="">Select Player 2</option>
+                <option value="">Player 2</option>
                 {users.map((user) => (
                   <option key={user.id} value={user.username}>
                     {user.username}
@@ -653,18 +653,20 @@ const styles: Record<string, React.CSSProperties> = {
   teamContainer: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: '20px',
+    gap: '10px',
   },
   team: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px',
+    gap: '6px',
   },
   select: {
-    padding: '10px',
-    fontSize: '16px',
+    padding: '6px',
+    fontSize: '13px',
     border: '1px solid #ddd',
     borderRadius: '4px',
+    maxWidth: '150px',
+    width: '100%',
   },
   button: {
     padding: '12px',
