@@ -35,8 +35,12 @@ export function Auth() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Betting App</h1>
-        <h2 style={styles.subtitle}>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
+        <img
+          src="https://xpclass.vn/tournament/logo.png"
+          alt="Logo"
+          style={styles.logo}
+        />
+        <h2 style={styles.subtitle}>{isSignUp ? 'Nhà cái cá cược số 1 Linh Đàm' : 'Nhà cái cá cược số 1 Linh Đàm'}</h2>
 
         <form onSubmit={handleSubmit} style={styles.form}>
           {isSignUp && (
@@ -69,7 +73,7 @@ export function Auth() {
           {error && <p style={styles.error}>{error}</p>}
 
           <button type="submit" disabled={loading} style={styles.button}>
-            {loading ? 'Loading...' : isSignUp ? 'Sign Up' : 'Sign In'}
+            {loading ? 'Loading...' : isSignUp ? 'Đăng ký' : 'Đăng nhập'}
           </button>
         </form>
 
@@ -80,7 +84,7 @@ export function Auth() {
           }}
           style={styles.toggleButton}
         >
-          {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+          {isSignUp ? 'Đăng nhập' : "Đăng ký"}
         </button>
       </div>
     </div>
@@ -93,15 +97,26 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
+    height: '100vh',
     backgroundColor: '#f5f5f5',
   },
   card: {
     backgroundColor: 'white',
     padding: '40px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    borderRadius: '0',
+    boxShadow: 'none',
     width: '100%',
     maxWidth: '400px',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  logo: {
+    display: 'block',
+    margin: '0 auto 20px',
+    height: '150px',
+    objectFit: 'contain',
   },
   title: {
     textAlign: 'center',
